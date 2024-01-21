@@ -6,30 +6,51 @@
 
 For this project, we need a development environment with the following:
 
- - A Python 3.10 (or higher) runtime with all _requirements_.
- - A Visual Studio Code editor with all _required extensions_.
- - Azure AI CLI tooling (binary) _for latest stable version_.
-
-To setup your development environment, you face 3 options:
-
-1. **Prebuilt, with GitHub Codespaces** -  recommended approach.
-2. **Prebuilt, with Docker Desktop** - for local development.
-3. **Manually, on local device** - tradeoff complexity for control.
-
-> [!IMPORTANT  
-> The Azure AI Studio preview and related Azure AI SDK and Azure AI CLI are likely to evolve quickly to reflect changes and updates. We strongly recommend using the pre-built development environment options to minimize your effort required to setup and maintain your own local environment to be consistent with thesev changes.
-
-For completeness, we've documented all three options below.
+ - **A Python 3.x runtime** (3.10 or higher) with all _requirements_.
+ - **A Visual Studio Code editor** with all _required extensions_.
+ - **Azure AI CLI tooling** (binary) _for latest stable version_.
 
 ---
 
-### Setup-1: Prebuilt, with GitHub Codespaces ✅
+### Fork The Sample
+
+Before you begin, we recommend you **fork the sample repo** into your own profile on GitHub. This is useful for two reasons:
+
+1. You keep a snapshot of the sample at this point in time, even as the main sample evolves. _This lets you have a stable and familiar version that corresponds to your walkthrough_,
+1. You can make changes to the code if you want to experiment on this later. _For example, you may want to try adding your own data, or exploring new features_.
+
+To fork the repo:
+
+1. Visit [Azure-Samples/aistudio-python-quickstart-sample](https://github.com/Azure-Samples/aistudio-python-quickstart-sample). Click the **Fork** button:
+
+    ![Create Fork](./img/devenv-create-fork.png)
+
+1. Click **Create Fork** leaving the default options unchanged.
+
+    ![Confirm Fork](./img/devenv-confirm-fork.png)
+
+!!!success "Congratulations! You have forked the sample to your profile!"
 
 
-> [!NOTE]  
-> This is the recommended option. Minimize your setup effort and maximize your productivity by using a prebuilt development environment.
+## Pick a Setup Option
 
-The repository is instrumented to use a [dev container](https://containers.dev) that includes all the necessary tools and packages required to build the copilot. 
+To setup your development environment, use one of these three options:
+
+1. **Pre-built, cloud VM** - using GitHub Codespaces.
+2. **Pre-built, local VM** - using Docker Desktop.
+3. **Manual, local OS** - using your preferred environment.
+
+The repository is instrumented with a [dev container](https://containers.dev) configuration that creates a pre-built development environment in a Docker container,r eady for your use. The first two options allow you to run this container in the cloud or on your local device. The final option is to do the entire setup yourself, in your preferred environment or OS.
+
+We've documented the three options below from least-effort to most, for setup. **Pick one**.
+
+!!!tip "Recommended Option: Pre-built Container On GitHub Codespaces!"
+
+    The Azure AI Studio preview and related Azure AI SDK and Azure AI CLI are likely to evolve quickly to reflect changes and updates. We **strongly recommend using the pre-built development environment** option to minimize your effort in maintaining your local environment, to stay up-to-date with these changes.
+
+
+
+### 1: Pre-built Container, in Cloud
 
 1. To get started, click the button below to launch [GitHub Codespaces](https://docs.github.com/codespaces) directly in your browser.
 
@@ -52,7 +73,8 @@ The repository is instrumented to use a [dev container](https://containers.dev) 
 
     🟩 Congratulations! You're Codespaces is ready!
 
-### Setup-2: Prebuilt, with Docker Desktop
+
+### 2: Pre-built Container, on Device
 
 > [!NOTE]  
 >  This option is recommended if you prefer to work locally on your device. Continue getting the benefits of a prebuilt development environment using Docker Desktop as your container host.
@@ -65,7 +87,7 @@ The repository is instrumented to use a [dev container](https://containers.dev) 
     🟩 Congratulations! You're local Dev Container is ready!
 
 
-### Setup-3: Manually, for local development
+### 3: Manual Setup, on Device
 
 > [!NOTE]  
 > This option is provided only for completeness. It is best for advanced users who are willing to tradeoff complexity (in maintenance) for control (in local environment setup). The user is accountable for making related updates when the Azure AI Studio, SDK or CLI dependencies change.
@@ -87,7 +109,7 @@ To minimize disruption to other projects on your local device, we recommend usin
 
 ---
 
-### Validate Setup
+## Validate Your Setup
 
 We assume you've completed one of the three options above to setup your development environment. Now, let's validate the setup by checking if the Azure AI CLI is installed. 
 

@@ -5,6 +5,10 @@ Lte's talk briefly about some of the core terms, concepts and technologies used 
 
 ## 1. Tools
 
+
+![Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/media/explore/ai-studio-home.png)
+
+
 ### 1.1 [**Azure AI Studio**](https://learn.microsoft.com/azure/ai-studio/)
 
  Azure AI Studio is a web-based UI that helps developers seamlessly explore, build, test, and deploy **enterprise-grade generative AI applications** using cutting-edge AI tools and ML models, grounded in responsible AI practices. It has three core value propositions:
@@ -55,22 +59,19 @@ The RAG pattern (shown above) maintains a data store with your custom data. When
 
 Searching and retrieving data quickly and accurately is critical. The RAG pattern achieves this by proactively maintaining _search indexes_ (as shown above) to improve performance and accuracy.
 
-Azure AI provides an Index asset to use with RAG - where the asset knows where the index is stored, how to access it, what search modes it supports, whether it has vector search capability, what embedding model it uses for this, and more. Currently, Azure AI Search is the primary Index solution for Azure AI projects. | See: [Retrieval Augmented Generation and Indexes](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/retrieval-augmented-generation#how-does-rag-work)
+Azure AI provides an Index asset to use with RAG - where the asset knows where the index is stored, how to access it, what search modes it supports, whether it has vector search capability, what embedding model it uses for this, and more. Currently, Azure AI Search is the primary Index solution for Azure AI projects. | **See: [Retrieval Augmented Generation and Indexes](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/retrieval-augmented-generation#how-does-rag-work)**
 
 ### 2.3 What is Vector Search?
 Vector search is an information retrieval approach using numeric representations of content for search scenarios. The search engine now matches on vectors that are the most similar to the query, without needing to match exact terms. This helps it power similarity search, multi-modal search, recommendations engines, or apps implementing the 
 [Retrieval Augmented Generation (RAG)](https://learn.microsoft.com/azure/search/retrieval-augmented-generation-overview) architecture.
 
-Vector search is available in Azure AI Search by default, and works as shown in the figure below. In this project, we use Azure AI Search to create a vector store for the product information data, then use Azure Open AI `text-embedding-ada-002` deployment for embedding data in vectors, for more efficient search and retrieval later. | See [Vector search in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview) for more details.
+Vector search is available in Azure AI Search by default, and works as shown below. In this project, we use Azure AI Search to create a vector store for the product information data, then use Azure Open AI `text-embedding-ada-002` deployment for embedding data in vectors, for more efficient search and retrieval later. | **See: [Vector search in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview).**
 
 ![What's vector search in Azure AI Search?](https://learn.microsoft.com/azure/search/media/vector-search-overview/vector-search-architecture-diagram-3-high-res.png#lightbox)
 
 
 
 ## 3. Azure Resources
-
-
-![Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/media/explore/ai-studio-home.png)
 
 As developers, we have three options for interacting with Azure AI services and models:
 
@@ -92,15 +93,14 @@ The Azure AI Resource is the top-level resource required before you can start wo
 The Azure AI Resource will expose API endpoints and keys for any _prebuilt AI services_ that you use in your AI solution. The default AI Resource configuration includes the [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/), [Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/), [Speech](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/), and [Vision](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/) AI services - and makes them accessible via a _common API key_.
 
 
-
 ### 3.3 [Azure AI Project](https://learn.microsoft.com/azure/ai-studio/how-to/create-projects)
 
+The Azure AI Project resource is used to organize your work and save state while building customized AI apps. Projects are hosted by an Azure AI resource that provides enterprise-grade security and a collaborative environment for the project team. Learn more about how to [create an Azure AI Project](https://learn.microsoft.com/azure/ai-studio/how-to/create-projects) using the Azure AI Studio (visually) or using the Azure AI CLI/SDK (programmatically).
 
 ### 3.4 [Azure AI Search](https://learn.microsoft.com/azure/search/search-what-is-azure-search) 
 
 
-[zure AI Search (formerly called _Azure Cognitive Search_) provides tools, APIs and infrastructure to **support information retrieval at scale** over heterogeneous data sources - for traditional and conversational search solutions. It is a [proven solution for information retrieval in RAG architectures](https://github.com/Azure-Samples/azure-search-openai-demo) and can be accessed from Azure AI Studio, Azure AI SDK or Azure AI CLI. 
+Azure AI Search (formerly called _Azure Cognitive Search_) provides tools, APIs and infrastructure to **support information retrieval at scale** over heterogeneous data sources - for traditional and conversational search solutions. It is a [proven solution for information retrieval in RAG architectures](https://github.com/Azure-Samples/azure-search-openai-demo) and can be accessed from Azure AI Studio, Azure AI SDK or Azure AI CLI. 
 
 
-
-!!!abstract "Next Up: [**Setup Development Environment**](./03-dev-env.md")
+!!!abstract "Next Up: [**Setup Development Environment**](./03-dev-env.md)"
