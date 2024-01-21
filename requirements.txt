@@ -2,7 +2,8 @@
 ipykernel
 
 # generative ai SDK dependencies
-azure-ai-generative[evaluate,index,promptflow]
+azure-ai-generative[index,evaluate,promptflow]
+azure-identity
 
 # hardcoded the version of azureml-mlflow here for faster Docker image building speed
 azureml-mlflow==1.53.0
