@@ -1,4 +1,4 @@
-## Step 1: Set up your development environment
+# 03 | Dev Environment
 
 Our development environment makes use of 3 resources:
  - [Azure AI Studio](https://aka.ms/azureaistudio) - accessed via browser.
@@ -98,4 +98,4 @@ If setup correctly, you should see the help screen for the Azure AI CLI. as show
 
 We've setup and validated our development environment. Next, we'll create our Azure AI project and provision resources to build our copilot solution.
 
-➡️ [**Step 02**: Initialize Azure AI Resources](./step-02.md)
+!!!abstract "Next Up: [**Provision Azure Resources**](./04-azure.md)"

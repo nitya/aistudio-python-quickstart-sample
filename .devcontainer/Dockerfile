@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/python:3.10
+FROM mcr.microsoft.com/devcontainers/python:3.11
 
 WORKDIR /
 
@@ -12,6 +12,7 @@ RUN apt update && apt install -y fuse
 
 # Install Python SDK
 COPY requirements.txt .
+RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt 
 
 # Adding this install under root's path for the custom AI Studio container solution

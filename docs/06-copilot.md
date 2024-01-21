@@ -1,3 +1,5 @@
+# 06 | Run Your Copilot
+
 ## Step 4: Run the co-pilot with a sample question
 
 > [!NOTE]  
@@ -98,4 +100,4 @@ We've created a custom copilot based on our product data and validated its usage
 
 Now, we need to evaluate how it performs in comparison to other applications like `chatgpt` by using a relevant evaluation dataset.
 
-➡️ [**Step 05**: Evaluate the copilot performance](./step-05.md)
+!!!abstract "Next Up: [**Evaluate Copilot Performance**](./07-evaluate.md)"

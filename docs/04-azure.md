@@ -1,3 +1,4 @@
+# 04 | Provision Azure
 
 ## Step 2: Create and connect to Azure Resources
 
@@ -45,5 +46,5 @@
 
 🟩 Congratulations! Our Azure AI project is ready. Now, it's time to build the Azure AI Search index for our product data, and use it for Retrieval Augmented Generation in our copilot.
 
-➡️ [**Step 03**: Build the Azure AI Search Index](./step-03.md)
+!!!abstract "Next Up: [**Populate Data & Indexess**](./05-search.md)"
 

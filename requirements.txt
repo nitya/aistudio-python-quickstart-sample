@@ -9,4 +9,4 @@ azureml-mlflow==1.53.0
 pytest
 
 # documentation
-mkdocs
+mkdocs-material

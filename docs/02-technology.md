@@ -1,42 +1,11 @@
-# Azure AI Studio: Python Quickstart Sample
+# 02 | Core Concepts
 
-> [!WARNING]  
-> **Features used in this repository are in preview. Preview versions are provided without a service level agreement, and they are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).**
+In this section, we'll cover the core concepts and technologies we will reference in the quickstart tutorial. This is not a comprehensive introduction to Azure AI Studio or Generative AI applications. Check out the []
 
-
-## Learning Objectives
-
-This tutorial walks you through the process of creating a copilot enterprise chat UI using custom Python code to ground copilot responses in your company data and APIs. By completing these steps, you'll also gain familiarity with the core features and functionality available in the Azure AI Studio preview, Azure AI CLI and Azure AI SDK for Python. 
-
-At the end of this exercises, you should know how to:
-1. [Setup your dev environment](step-02.md) - using prebuilt dev containers.
-2. [Create your AI project](step-03.md) - using Azure AI CLI `ai init` command.
-3. [Create your AI Search index](step-04.md) - using Azure AI CLI `ai search` command.
-4. [Run copilot with a sample question](step-05.md) - using Azure AI SDK for Python.
-5. [Evaluate copilot performance](step-06.md) - using chatgpt to compare results.
-5. [Deploy copilot to Azure](step-06.md) - and use the endpoint in your own apps.
-
-_The sample is just a starting point that you can customize further, with your own data and additional capabilities, to meet your specific requirements._
-
-
-## ✅ | Pre-Requisites
-
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-2. Access to Azure OpenAI in the Azure Subscription - [Request access here](https://aka.ms/oai/access)
-3. Custom data to ground the copilot - [Sample product-info data is provided](./../data/3-product-info/)
-4. A GitHub account - [Create one for free](https://github.com/signup)
-5. Access to GitHub Codespaces - [Free quota should be sufficient](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts)
-
-This tutorial will make use of the Azure AI Studio preview, the Azure AI SDK and the Azure AI CLI.
-- Verify that you can access [Azure AI Studio](https://ai.azure.com) in your region.
-- Read the [Azure AI Studio FAQ](https://learn.microsoft.com/azure/ai-studio/faq#how-can-customers-access-azure-ai-studio--) for details in avaialbility, pricing and more.
-
-
-## Technology Overview
 
 Before we dive into the development process, let's review a few core terms and concepts that you will encounter in this tutorial. 
 
-If you're already familiar with Azure AI Studio preview and related Azure AI services and tools, skip ahead to 👉🏽 [**Step 01**: Setup Dev Environment](./step-01.md)
+If you're already familiar with Azure AI Studio preview and related Azure AI services and tools, skip ahead to 👉🏽 [**Step 01**: Setup Dev Environment](./01-start.md)
 
 
 ### 1. What is Azure AI Studio?
@@ -95,8 +64,4 @@ Vector search is available in Azure AI Search by default, and works as shown in 
 1. [Tutorial: Deploy a web app for chat on your data](https://learn.microsoft.com/azure/ai-studio/tutorials/deploy-chat-web-app) 
 1. [Quickstart: Moderate text and images with content safety in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/quickstarts/content-safety)
 
-## Next Steps
-
-To build our copilot solution, we first need to setup our development environment with the right tools, libraries and content (e.g., custom data sources) to work with Azure and Azure AI resources.
-
-➡️ [**Step 01**: Setup Dev Environment](./step-01.md)
+!!!abstract "Next Up: [**Setup Development Environment**](./03-dev-env.md"

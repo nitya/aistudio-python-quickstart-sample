@@ -1,3 +1,4 @@
+# 07 | Evaluate Your Copilot
 
 ## Step 5: Evaluate your copilot implementation
 
@@ -58,4 +59,4 @@ Take a few minutes to explore the Azure AI Studio interface and see what other m
 
 Now it's time to think about how to deploy your copilot implementation to Azure, so that it can be used by your users and applications.
 
-➡️ [**Step 06**: Deploy the copilot to Azure](./step-06.md)
+!!!abstract "Next Up: [**Deploy Copilot To Azure**](./08-deploy.md)"

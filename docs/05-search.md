@@ -1,3 +1,5 @@
+# 05 | Provision Search
+
 ## Step 3: Build an Azure Search index
 
 In this step, we'll use the Azure AI CLI to build an Azure Search index for our product data. This index will then be used by our copilot to retrieve relevant information and create an augmented prompt that can be used by the targeted LLM to generate a more relevant response to the user question.
@@ -31,4 +33,4 @@ You now have an Azure AI project with an Azure AI Search index using your custom
 
 Now, it's time to test our copilot with a sample question that relates to the custom data we used for building the index.
 
-➡️ [**Step 04**: Validate the copilot with a sample question](./step-04.md)
+!!!abstract "Next Up: [**Test Copilot With A Question**](./06-copilot.md)"
