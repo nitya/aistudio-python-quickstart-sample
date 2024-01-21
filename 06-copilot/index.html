@@ -1,0 +1,795 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../05-search/">
+      
+      
+        <link rel="next" href="../07-evaluate/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>06 | Run Your Copilot - Build A Copilot With Your Data</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#06-run-your-copilot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Build A Copilot With Your Data" class="md-header__button md-logo" aria-label="Build A Copilot With Your Data" data-md-component="logo">
+      
+  <img src="../img/azure-ai-studio.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Build A Copilot With Your Data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              06 | Run Your Copilot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Build A Copilot With Your Data" class="md-nav__button md-logo" aria-label="Build A Copilot With Your Data" data-md-component="logo">
+      
+  <img src="../img/azure-ai-studio.svg" alt="logo">
+
+    </a>
+    Build A Copilot With Your Data
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart - Python SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-preview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docs Preview 🆕
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 | Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 | Core Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-dev-env/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 | Dev Environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-azure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 | Provision Azure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 | Provision Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    06 | Run Your Copilot
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    06 | Run Your Copilot
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-run-the-co-pilot-with-a-sample-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Run the co-pilot with a sample question
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Run the co-pilot with a sample question">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-using-azure-ai-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Using Azure AI CLI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-azure-ai-sdk-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Using Azure AI SDK - Python Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-azure-ai-sdk-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Using Azure AI SDK - Jupyter Notebook
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-evaluate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 | Evaluate Your Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 | Deploy Your Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 | Learning Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 | Summary & Wrap-Up
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99-contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Want to Contribute?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-run-the-co-pilot-with-a-sample-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Run the co-pilot with a sample question
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Run the co-pilot with a sample question">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-using-azure-ai-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Using Azure AI CLI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-azure-ai-sdk-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Using Azure AI SDK - Python Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-azure-ai-sdk-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Using Azure AI SDK - Jupyter Notebook
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="06-run-your-copilot">06 | Run Your Copilot</h1>
+<div class="admonition danger">
+<p class="admonition-title">TODO: Validate these work with the latest CLI</p>
+</div>
+<h2 id="step-4-run-the-co-pilot-with-a-sample-question">Step 4: Run the co-pilot with a sample question</h2>
+<blockquote>
+<p>[!NOTE]<br />
+You can interact with the copilot using the Azure AI CLI (from commandline) or the Azure AI SDK (from Python code or Jupyter notebooks). Let's explore all three.</p>
+</blockquote>
+<h3 id="1-using-azure-ai-cli">1. Using Azure AI CLI</h3>
+<p>The Azure AI CLI has an <code>ai chat</code> command that allows you to interact with the copilot. Once you have initialized resources and have a deployment, use <code>ai chat</code> to engage interactively or non-interactively with the copilot. </p>
+<p>You can <em>chat with your data</em> or <em>chat with a function</em> for more grounded or custom chat experiences. Use <code>ai chat help</code> to see available options or browse <a href="https://learn.microsoft.com/azure/ai-studio/how-to/cli-install#ai-chat">the documentation</a> for details. </p>
+<p>Let's look at some examples.</p>
+<ol>
+<li>
+<p>Example of a non-interactive chat. We'll use the <code>--user</code> option to ask the copilot a simple question.</p>
+<div class="highlight"><pre><span></span><code>ai<span class="w"> </span>chat<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;What products do you have? Give me name, price and 1 sentence descriptions for each&quot;</span>
+</code></pre></div>
+<p><img alt="Chat noninteractive" src="../img/13-ai-chat-noninteractive.png" /></p>
+</li>
+<li>
+<p>Example of interactive chat. This sets up a conversation with the copilot that maintains context. Use <code>exit</code> to exit the chat.</p>
+<p><div class="highlight"><pre><span></span><code>ai<span class="w"> </span>chat<span class="w"> </span>--interactive
+</code></pre></div>
+<img alt="Chat noninteractive" src="../img/14-ai-chat-interactive.png" /></p>
+</li>
+<li>
+<p>Example of a "chat with function" capability. This allows us to define and use a tailored function to interact with the copilot.</p>
+<p><div class="highlight"><pre><span></span><code>ai<span class="w"> </span>chat<span class="w"> </span>--interactive<span class="w"> </span>--function<span class="w"> </span>src/copilot_aisdk/chat:chat_completion
+</code></pre></div>
+<img alt="Chat completion" src="../img/15-ai-chat-completion.png" /></p>
+</li>
+</ol>
+<h3 id="2-using-azure-ai-sdk-python-code">2. Using Azure AI SDK - Python Code</h3>
+<p>The <code>src/copilot_aisdk/chat.py</code> defines two functions using the Azure AI SDK, that effectively represent our copilot 'with custom data' implementation.
+ - <code>get_documents</code> generates a vector embedding of the user question, then uses the Azure AI Search client to retrieve documents relevant to it.
+ - <code>chat_completion</code> uses the Azure OpenAI chat deployment endpoint with the document-enhanced question, to get a more relevant res</p>
+<p>The <code>src/run.py</code> file provides two capabilities:
+ - It uses the Azure AI SDK to interact with Azure AI services (to create and manage resources) and with our copilot implementation (to ask user questions)
+ - It has a <code>main</code> function that can be used to invoke these functions based on commandline arguments. Use <code>src/run.py --help</code> to see available options.</p>
+<p>Let's ask our copilot a simple question using the <code>--question</code> option this provides, as follows:</p>
+<p><div class="highlight"><pre><span></span><code>python<span class="w"> </span>src/run.py<span class="w"> </span>--question<span class="w"> </span><span class="s2">&quot;which tent is the most waterproof?&quot;</span>
+</code></pre></div>
+<img alt="Run py" src="../img/16-runpy-chat.png" /></p>
+<p>Try adding a <code>--stream</code> option and see what happens.</p>
+<p>(<em>Hint: it will return a collection of objects, each with part of the response - allowing you to render that in chunks to simulate a more interactive chat experience for users.</em>)</p>
+<h3 id="3-using-azure-ai-sdk-jupyter-notebook">3. Using Azure AI SDK - Jupyter Notebook</h3>
+<p>We can also use the Azure AI SDK from Jupyter notebooks for a step-by-step learning experience that is ideal for exploration.</p>
+<blockquote>
+<p>[!NOTE]<br />
+To execute code in a Jupyter notebook, we need a suitable kernel. The prebuilt dev container environment has a Python 3.10 kernel we'll use for this purpose, as shown below. For you own local environment <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">follow this guidance</a> to activate the right envorinment and kernel.</p>
+</blockquote>
+<ol>
+<li>
+<p>We've provided a sample notebook in <code>src/copilot_sdk/chat.ipynb</code>. Start by opening that in VS Code then click the <code>Select Kernel</code> button at top right to get the drop-down menu, then select <em>Python Environments</em>.</p>
+<p><img alt="Open notebook" src="../img/17-notebook-setup.png" /> </p>
+</li>
+<li>
+<p>Select the Python 3.10 environment (or higher) as your kernel in the drop-down</p>
+<p><img alt="Select Kernel" src="../img/18-notebook-select.png" /> 
+1. Check that the kernel is active (it should be shown in place of the <code>Select Kernel</code> button)</p>
+<p><img alt="Activate Kernel" src="../img/19-notebook-activate.png" />
+1. Now you can execute the notebook cells one by one, using the <code>Run Cell</code> button at the top right of each cell. Let's start by executing the first cell which asks a simple question <strong>but has Stream set to true</strong>.</p>
+<p><img alt="Execute cell" src="../img/20-notebook-cell-result.png" /> 
+1. The output cell will have an option to expand the output to see the full results. You should see something like this - showing how the response is streamed in chunks to allow us to render responses in an incremental, interactive way.</p>
+<p><img alt="Scroll results" src="../img/21-notebook-cell-scroll.png" /> 
+1. Next, try executing the second cell which asks a simple question <strong>but has Stream set to false</strong>. This is the non-interactive chat mode, returning a single response as shown.</p>
+<p><img alt="Scroll results" src="../img/22-notebook-cell-single.png" /> </p>
+</li>
+</ol>
+<p>You can now extend the notebook with more cells, each trying out copilot or Azure AI SDK functionality in an exploratory way.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>🟩 Congratulations!</p>
+<p>We've created a custom copilot based on our product data and validated its usage with a simple question from both Azure AI CLI and Azure AI SDK. </p>
+<p>Now, we need to evaluate how it performs in comparison to other applications like <code>chatgpt</code> by using a relevant evaluation dataset.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Next Up: <a href="../07-evaluate/"><strong>Evaluate Copilot Performance</strong></a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02-technology/">
+      
+      
+        <link rel="next" href="../04-azure/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>03 | Dev Environment - Build A Copilot With Your Data</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03-dev-environment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Build A Copilot With Your Data" class="md-header__button md-logo" aria-label="Build A Copilot With Your Data" data-md-component="logo">
+      
+  <img src="../img/azure-ai-studio.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Build A Copilot With Your Data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03 | Dev Environment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Build A Copilot With Your Data" class="md-nav__button md-logo" aria-label="Build A Copilot With Your Data" data-md-component="logo">
+      
+  <img src="../img/azure-ai-studio.svg" alt="logo">
+
+    </a>
+    Build A Copilot With Your Data
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart - Python SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-preview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docs Preview 🆕
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 | Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 | Core Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    03 | Dev Environment
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    03 | Dev Environment
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-fork-the-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Fork The Sample
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-pick-a-setup-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Pick a Setup Option
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Pick a Setup Option">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pre-built-container-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 | Pre-built Container (Cloud)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pre-built-container-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 | Pre-built Container (Device)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-manual-setup-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 | Manual Setup (Device)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-validate-your-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Validate Your Setup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-azure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 | Provision Azure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 | Provision Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-copilot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 | Run Your Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-evaluate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 | Evaluate Your Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 | Deploy Your Copilot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 | Learning Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 | Summary & Wrap-Up
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99-contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Want to Contribute?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-fork-the-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Fork The Sample
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-pick-a-setup-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Pick a Setup Option
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Pick a Setup Option">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pre-built-container-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 | Pre-built Container (Cloud)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pre-built-container-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 | Pre-built Container (Device)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-manual-setup-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 | Manual Setup (Device)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-validate-your-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Validate Your Setup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="03-dev-environment">03 | Dev Environment</h1>
+<div class="admonition warning">
+<p class="admonition-title">Azure AI Studio is currently <strong>In Preview</strong></p>
+<p><strong>Preview versions are provided without a service level agreement, and they are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see <a href="https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/">Supplemental Terms of Use for Microsoft Azure Previews</a>.</strong></p>
+</div>
+<p>For this project, we need a development environment with the following:</p>
+<ul>
+<li><strong>A Python 3.x runtime</strong> (3.10 or higher) with all <em>requirements</em>.</li>
+<li><strong>A Visual Studio Code editor</strong> with all <em>required extensions</em>.</li>
+<li><strong>Azure AI CLI tooling</strong> (binary) <em>for latest stable version</em>.</li>
+</ul>
+<hr />
+<h3 id="31-fork-the-sample">3.1 Fork The Sample</h3>
+<p>Before you begin, we recommend you <strong>fork the sample repo</strong> into your own profile on GitHub. This is useful for two reasons:</p>
+<ol>
+<li>You keep a snapshot of the sample at this point in time, even as the main sample evolves. <em>This lets you have a stable and familiar version that corresponds to your walkthrough</em>,</li>
+<li>You can make changes to the code if you want to experiment on this later. <em>For example, you may want to try adding your own data, or exploring new features</em>.</li>
+</ol>
+<p>To fork the repo:</p>
+<ol>
+<li>
+<p>Visit <a href="https://github.com/Azure-Samples/aistudio-python-quickstart-sample">Azure-Samples/aistudio-python-quickstart-sample</a>. Click the <strong>Fork</strong> button:</p>
+<p><img alt="Create Fork" src="../img/devenv-create-fork.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create Fork</strong>, select owner profile,  leave t default options unchanged.</p>
+<p><img alt="Confirm Fork" src="../img/devenv-confirm-fork.png" /></p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Congratulations 🎉 - You have forked the sample to your profile!</p>
+</div>
+<h2 id="32-pick-a-setup-option">3.2 Pick a Setup Option</h2>
+<p>To setup your development environment, use one of these three options:</p>
+<ol>
+<li><strong>Pre-built, cloud VM</strong> - using GitHub Codespaces.</li>
+<li><strong>Pre-built, local VM</strong> - using Docker Desktop.</li>
+<li><strong>Manual, local OS</strong> - using your preferred environment.</li>
+</ol>
+<p>The repository is instrumented with a <a href="https://containers.dev">dev container</a> configuration that creates a pre-built development environment in a Docker container, ready for your use. The first two options allow you to run this container - either in the cloud or on your local device. The final option lets you control the entire setup yourself, in your preferred environment or OS.</p>
+<p>We've documented the three options below from least-effort to most, for setup. <strong>Pick one</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Recommended Option: Pre-built Container On GitHub Codespaces!</p>
+<p>The Azure AI Studio preview and related Azure AI SDK and Azure AI CLI are likely to evolve quickly to reflect changes and updates. We <strong>strongly recommend using the pre-built development environment</strong> option to minimize your effort in maintaining your local environment, to stay up-to-date with these changes.</p>
+</div>
+<h3 id="1-pre-built-container-cloud">1 | Pre-built Container (Cloud)</h3>
+<p>Complete this section if you want to use the prebuilt option with GitHub Codespaces.</p>
+<ol>
+<li>
+<p>To get started, launch GitHub Codespaces by clicking the "Code" button in the repository UI, selecting the "Codespaces" tab - and then creating a new codespace. <em>Previously created codespaces will be listed if active or available for resume</em>.
+    <img alt="Launch GitHub Codespaces" src="../img/01-launch-codespaces.png" />   </p>
+</li>
+<li>
+<p>The first time you launch the codespace, you will see a new tab open with something like this indicating that the Codespace (dev container) is being built. Clicking the <code>Show Logs</code> button in the output console will produce the detailed output shown below.
+    <img alt="Codespace build" src="../img/02-setup-codespaces.png" /></p>
+</li>
+<li>
+<p>Once the build completes, you should see the tab refresh to show a Visual Studio Code editor in the browser, as shown below. The blue bar at the bottom left of the screen should show you the name of the running Github Codespaces instance.
+    <img alt="Codespace build" src="../img/03-running-codespaces.png" /></p>
+</li>
+<li>
+<p>If you refresh the repository page and view that 'Codespaces' tab again, you should see the same name show up as an active codespace for that repository.
+    <img alt="Codespace build" src="../img/03-view-codespaces.png" /></p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Congratulations 🎉 - Your Codespaces is Ready!</p>
+</div>
+<h3 id="2-pre-built-container-device">2 | Pre-built Container (Device)</h3>
+<p>Complete this section if you want to use the prebuilt option with Docker Desktop on your local device. This gives you the benefits of a pre-built environment but without using up your GitHub Codespaces quota.</p>
+<ol>
+<li><strong>Install Docker Desktop</strong>. Follow <a href="https://code.visualstudio.com/docs/devcontainers/containers#_installation"><strong>these instructions</strong></a> to install Docker Desktop on your device.</li>
+<li>
+<p><strong>Clone the forked repository</strong> to your local device, then open the repository in Visual Studio Code. Follow <a href="https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container"><strong>these instructions</strong></a> open the folder in a container in Docker Desktop. The container takes a few minutes to build. You should then see something like this. Note the green icon (bottom left) shows a <code>Dev Container</code> label, not a GitHub Codespace name.</p>
+<p><img alt="Dpcker build" src="../img/03-view-docker.png" /></p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Congratulations 🎉 - You're local Dev Container is ready!</p>
+</div>
+<h3 id="3-manual-setup-device">3 | Manual Setup (Device)</h3>
+<p>This option is provided for completeness, but we do not recommend it unless you are an advanced user willing to tradeoff complexity (maintenance) for control (customized env). You will now be accountable for making related updates to keep in sync with changes to the Azure AI Studio, CLI, SDK or codebase. If you go this route, <em>we recommend using a managed virtual environment</em> (<code>venv</code> or <code>conda</code>) to prevent conflicts with other Python development environments you have on your local device. </p>
+<ol>
+<li>
+<p><strong>Install and activate a virtual environment</strong>. Follow guidance on <a href="https://learn.microsoft.com/azure/ai-studio/how-to/sdk-install?tabs=linux">"How to get started with the Azure AI SDK"</a> to install your preferred virtual environment (venv or conda) and activate it. You will need <code>Python 3.10 or higher</code> to use the Azure AI SDK.</p>
+</li>
+<li>
+<p><strong>Install the Azure AI SDK</strong>. Use this command to install dependencies in <code>requirements.txt</code>. </p>
+<p><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+3. <strong>Install the Azure AI CLI</strong>. This step depends on your device operating system. Use the command below if you are on a Linux (e.g, Ubuntu) environment. If you are on a Windows or macOS machine, <a href="https://github.com/Azure/azureai-insiders/blob/main/previews/aistudio/how-to/use_azureai_sdk.md#install-the-cli"><strong>follow these instrucutions</strong></a> instead.
+<div class="highlight"><pre><span></span><code>curl -sL https://aka.ms/InstallAzureAICLIDeb | sudo bash
+</code></pre></div></p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Congratulations 🎉 - You're local environment is ready!</p>
+</div>
+<hr />
+<h2 id="33-validate-your-setup">3.3 Validate Your Setup</h2>
+<p>We assume you've completed one of the three options above to setup your development environment. Now, let's validate the setup by checking if the Azure AI CLI is installed. </p>
+<p><div class="highlight"><pre><span></span><code>ai<span class="w"> </span><span class="nb">help</span>
+</code></pre></div>
+If setup correctly, you should see the help screen for the Azure AI CLI. as shown below. Hit <kbd> Esc </kbd> to exit the help screen and get back to your commandline prompt.</p>
+<p><img alt="Validate Setup" src="../img/04-validate-setup.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Congratulations 🎉 - You've validated your dev environment!</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Next Up: <a href="../04-azure/"><strong>Provision Azure Resources</strong></a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>
