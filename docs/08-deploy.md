@@ -18,4 +18,4 @@ In the meantime, please refer to the following documentation links to learn more
 
 We made it to the end of our quickstart sample. Next, we'll recap what we covered and share tips & resources to help you keep going.
 
-!!!abstract "Next Up: [**Summary & Wrap-Ups**](./10-summary.md)"
+!!!abstract "Next Up: [**Resourcs**](./09-resources.md)"

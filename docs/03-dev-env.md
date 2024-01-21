@@ -1,11 +1,17 @@
 # 03 | Dev Environment
 
-Our development environment makes use of 3 resources:
- - [Azure AI Studio](https://aka.ms/azureaistudio) - accessed via browser.
- - [Azure AI CLI](https://learn.microsoft.com/azure/ai-studio/how-to/cli-install?tabs=linux%2Cterminal) - accessed via terminal.
- - [Azure AI SDK](https://learn.microsoft.com/azure/ai-studio/how-to/sdk-install?tabs=linux) - accessed via code.
+!!!warning "Azure AI Studio is currently **In Preview**"
+    **Preview versions are provided without a service level agreement, and they are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).**
 
-To setup your development environment, you have 3 options:
+
+For this project, we need a development environment with the following:
+
+ - A Python 3.10 (or higher) runtime with all _requirements_.
+ - A Visual Studio Code editor with all _required extensions_.
+ - Azure AI CLI tooling (binary) _for latest stable version_.
+
+To setup your development environment, you face 3 options:
+
 1. **Prebuilt, with GitHub Codespaces** -  recommended approach.
 2. **Prebuilt, with Docker Desktop** - for local development.
 3. **Manually, on local device** - tradeoff complexity for control.

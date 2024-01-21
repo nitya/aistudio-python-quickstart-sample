@@ -16,7 +16,7 @@ This repository contains the starter code and step-by-step quickstart tutorial f
 
 ## What You'll Build
 
-In this quickstart sample you'll build a **enterprise copilot** uses a _Retrieval Augmented Generation_ pattern to ground the chat agent's responses in your company's data and APIs. The sample is not meant for production use, but as a starting point for you to explore further customization of features and functionality, to support your own application requirements.
+In this quickstart sample you'll build a **enterprise copilot app**, using a _Retrieval Augmented Generation_ pattern to ground the chat agent's responses in your company's data and APIs. The sample is not meant for production use, but as a starting point for you to explore further customization of features and functionality, to support your own application requirements.
 
 Follow the steps in our [**quickstart tutorial**](./01-start.md) to learn how to:
 
@@ -32,11 +32,11 @@ In the process, you'll learn to use three tools that form the basis of the Azure
  - **Azure AI CLI** - For commandline interactions with the Azure AI platform.
  - **Azure AI SDK** - For code-based interactions with the Azure AI platform.
 
-In the process, you will get familiar with the **Azure AI CLI** for setting up and configuring your copilot from the commandline. And you'll learn to use the **Azure AI SDK** (from Python code or from Jupyter Notebooks) to interact programmatically with your copilot.
+Plus, you'll learn to use the **Azure AI CLI** to simplify your setup process. And you'll learn to use the **Azure AI SDK** (from Python code or from Jupyter Notebooks) to interact programmatically with the Azure AI Platform (during development), and with your copilot (on deployment).
 
-!!!note "THIS IS NOT A PRODUCTION SAMPLE"
+!!!danger "THIS IS NOT A PRODUCTION SAMPLE"
 
-    We do not guarantee the quality of responses produced by this sample copilot or its suitability for use in your scenario, and responses will vary as development of this sample is ongoing. You must perform your own validation the outputs of the copilot and its suitability for use within your company.
+    We do not guarantee the quality of responses produced by this sample copilot or promote its suitability for use in your real-world production deployments. The copilot responses may vary over time as features and functionality of various components evolves. You must perform your own evaluation of copilot response quality to assess suitabilty for your specific use case or solution integration if you choose to repurpose the sample.
 
 
 ## Getting Started
@@ -62,3 +62,6 @@ This sample taught you to build a Copilot With Your Data - using the Azure AI SD
     1. [Build a Copilot With Your Data - **using Prompt Flow**](https://github.com/Azure-Samples/aistudio-python-promptflow-sample)
     1. [Build a Copilot With Your Data - **using LangChain**](https://github.com/Azure-Samples/aistudio-python-langchain-sample)
 
+
+
+!!!abstract "Next Up: [**Preview Docs In Browser**](./00-preview.md)"

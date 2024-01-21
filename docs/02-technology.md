@@ -1,30 +1,58 @@
 # 02 | Core Concepts
 
-In this section, we'll cover the core concepts and technologies we will reference in the quickstart tutorial. This is not a comprehensive introduction to Azure AI Studio or Generative AI applications. Check out the []
+Lte's talk briefly about some of the core terms, concepts and technologies used in this quickstart tutorial. This is not a comprehensive coverage of the topics so check the [Resources page](./09-resources.md) for relevant documentation and training links.
 
 
-Before we dive into the development process, let's review a few core terms and concepts that you will encounter in this tutorial. 
+## 1. Technology
 
-If you're already familiar with Azure AI Studio preview and related Azure AI services and tools, skip ahead to 👉🏽 [**Step 01**: Setup Dev Environment](./01-start.md)
+### 1.1 Azure AI Studio
+
+[Azure AI Studio](https://aka.ms/azureaistudio) is a web-based UI that helps developers seamlessly explore, build, test, and deploy **enterprise-grade generative AI applications** using cutting-edge AI tools and ML models, grounded in responsible AI practices. It has three core value propositions:
+
+ - **Explore** - for _discovery_.  Browse models, services or solutions in the Azure AI platform.
+ - **Build** - for _developers_. Build and customize AI models & AI solutions via code or UI.
+ - **Manage** - for _admins_. Oversee policy, billing, access control, infra usage etc.
+ 
+![Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/media/explore/ai-studio-home.png)
+
+As developers, we have three options for interacting with Azure AI services and models:
+
+ - **Azure AI Studio** - browser-based low-code approach.
+ - **Azure AI CLI** - terminal-based command-line approach.
+ - **Azure AI SDK** - editor-based code-first approach (Python & Jupyter Notebooks)
+
+In this sample, we will primarily work with the Azure AI CLI and Azure AI SDK for developing our copilot solution. We'll use the Azure AI Studio primarily to verify the outcomes of our deployment. 
+
+### 1.2 [Azure AI Services](https://learn.microsoft.com/azure/ai-services/what-are-ai-services?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext)
+
+Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Most Azure AI services can be accessed via API or SDK for code-first integrations. Browse the [available Azure AI services](https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services?context=%2Fazure%2Fai-studio%2Fcontext%2Fcontext) to understand the range of capabilities.
 
 
-### 1. What is Azure AI Studio?
+### 1.3 [Azure AI Resource](https://learn.microsoft.com/azure/ai-studio/concepts/ai-resources)
 
-[Azure AI Studio](https://aka.ms/azureaistudio) is a trusted platform that provides a simplfied developer experience for exploring, building, testing and deploying AI solutions that are also grounded in responsible AI practices. 
- - Manage your Azure AI project directly from the **Azure AI Studio UI**
- - Interact with the project programmatically, using the **Azure AI SDK**
- - Interact with the project from the commandline, using the **Azure AI CLI**
+The Azure AI Resource is the top-level resource required before you can start working on an AI Project. It provides the working environment for a team to plan and execute their solution from design to deployment. And it is typically used by the _admin_ in the team to oversee access controls, billing and resource usage across the multiple AI projects it might be supporting.
 
-With the Azure AI Studio, you get a centralized space for exploring and deploying AI models, discovering AI services, and managing your AI project resources for the end-to-end development experience.
+The Azure AI Resource will expose API endpoints and keys for any _prebuilt AI services_ that you use in your AI solution. The default AI Resource configuration includes the [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/), [Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/), [Speech](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/), and [Vision](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/) AI services - and makes them accessible via a _common API key_.
 
 
-### 2. What is a copilot?
+
+### 1.4 [Azure AI Project](https://learn.microsoft.com/azure/ai-studio/how-to/create-projects)
+
+
+### 1.5 [Azure AI Search](https://learn.microsoft.com/azure/search/search-what-is-azure-search) 
+
+
+[zure AI Search (formerly called _Azure Cognitive Search_) provides tools, APIs and infrastructure to **support information retrieval at scale** over heterogeneous data sources - for traditional and conversational search solutions. It is a [proven solution for information retrieval in RAG architectures](https://github.com/Azure-Samples/azure-search-openai-demo) and can be accessed from Azure AI Studio, Azure AI SDK or Azure AI CLI. 
+
+## 2. Terminology
+
+### 2.1 What is a Copilot
 
 A copilot is an application that uses modern AI and large language models (LLM) to assist you in completing complex cognitive tasks. 
 
 In this particular tutorial, we are building a copilot that assists you in answering user questions _about your company data_, by using the [Retrieval Augmented Generation (RAG)](https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation) pattern  with your preferred LLM deployment endpoint.
 
-### 3. What is Retrieval Augmented Generation (RAG)?
+### 2.2 What is RAG?
 
 [Retrieval Augmented Generation (RAG)](https://learn.microsoft.com/azure/search/retrieval-augmented-generation-overview) is a pattern where you _augment_ the capability of the default Large Language Model (LLM) by adding an _information retrieval system_. This provides you more control over the data used by the LLM in generating responses to user "questions", allowing you to tailor copilot responses to reflect your company data and requirements.
 
@@ -38,13 +66,7 @@ Searching and retrieving data quickly and accurately is critical. The RAG patter
 
 Azure AI provides an Index asset to use with RAG - where the asset knows where the index is stored, how to access it, what search modes it supports, whether it has vector search capability, what embedding model it uses for this, and more. Currently, Azure AI Search is the primary Index solution for Azure AI projects. | See: [Retrieval Augmented Generation and Indexes](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/retrieval-augmented-generation#how-does-rag-work)
 
-
-### What is Azure AI Search? 
-
-[Azure AI Search](https://learn.microsoft.com/azure/search/search-what-is-azure-search) (formerly called _Azure Cognitive Search_) provides tools, APIs and infrastructure to **support information retrieval at scale** over heterogeneous data sources - for traditional and conversational search solutions. It is a [proven solution for information retrieval in RAG architectures](https://github.com/Azure-Samples/azure-search-openai-demo) and can be accessed from Azure AI Studio, Azure AI SDK or Azure AI CLI.
-
-### What is Vector Search in Azure AI Search?
-
+### 2.3 What is Vector Search?
 Vector search is an information retrieval approach using numeric representations of content for search scenarios. The search engine now matches on vectors that are the most similar to the query, without needing to match exact terms. This helps it power similarity search, multi-modal search, recommendations engines, or apps implementing the 
 [Retrieval Augmented Generation (RAG)](https://learn.microsoft.com/azure/search/retrieval-augmented-generation-overview) architecture.
 
@@ -52,16 +74,5 @@ Vector search is available in Azure AI Search by default, and works as shown in 
 
 ![What's vector search in Azure AI Search?](https://learn.microsoft.com/azure/search/media/vector-search-overview/vector-search-architecture-diagram-3-high-res.png#lightbox)
 
-
-
-
-### Learning Resources
-
-1. [Azure AI Studio](https://ai.azure.com) - UI to explore, build & manage AI solutions.
-1. [Azure AI Studio Docs](https://learn.microsoft.com/azure/ai-studio/) - Azure AI Studio documentation.
-1. [Azure AI Services](https://learn.microsoft.com/azure/ai-services/what-are-ai-services) - Azure AI Services documentation.
-1. [Training: Using vector search in Azure Cognitive Search](https://learn.microsoft.com/training/modules/improve-search-results-vector-search) 
-1. [Tutorial: Deploy a web app for chat on your data](https://learn.microsoft.com/azure/ai-studio/tutorials/deploy-chat-web-app) 
-1. [Quickstart: Moderate text and images with content safety in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/quickstarts/content-safety)
 
 !!!abstract "Next Up: [**Setup Development Environment**](./03-dev-env.md"
