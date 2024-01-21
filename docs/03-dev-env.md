@@ -12,7 +12,7 @@ For this project, we need a development environment with the following:
 
 ---
 
-### Fork The Sample
+### 3.1 Fork The Sample
 
 Before you begin, we recommend you **fork the sample repo** into your own profile on GitHub. This is useful for two reasons:
 
@@ -25,14 +25,14 @@ To fork the repo:
 
     ![Create Fork](./img/devenv-create-fork.png)
 
-1. Click **Create Fork** leaving the default options unchanged.
+1. Click **Create Fork**, select owner profile,  leave t default options unchanged.
 
     ![Confirm Fork](./img/devenv-confirm-fork.png)
 
-!!!success "Congratulations! You have forked the sample to your profile!"
+!!!success "Congratulations 🎉 - You have forked the sample to your profile!"
 
 
-## Pick a Setup Option
+## 3.2 Pick a Setup Option
 
 To setup your development environment, use one of these three options:
 
@@ -40,7 +40,7 @@ To setup your development environment, use one of these three options:
 2. **Pre-built, local VM** - using Docker Desktop.
 3. **Manual, local OS** - using your preferred environment.
 
-The repository is instrumented with a [dev container](https://containers.dev) configuration that creates a pre-built development environment in a Docker container,r eady for your use. The first two options allow you to run this container in the cloud or on your local device. The final option is to do the entire setup yourself, in your preferred environment or OS.
+The repository is instrumented with a [dev container](https://containers.dev) configuration that creates a pre-built development environment in a Docker container, ready for your use. The first two options allow you to run this container - either in the cloud or on your local device. The final option lets you control the entire setup yourself, in your preferred environment or OS.
 
 We've documented the three options below from least-effort to most, for setup. **Pick one**.
 
@@ -50,80 +50,68 @@ We've documented the three options below from least-effort to most, for setup. *
 
 
 
-### 1: Pre-built Container, in Cloud
+### 1 | Pre-built Container (Cloud)
 
-1. To get started, click the button below to launch [GitHub Codespaces](https://docs.github.com/codespaces) directly in your browser.
+Complete this section if you want to use the prebuilt option with GitHub Codespaces.
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/)
-
-    Alternatively, you can launch GitHub Codespaces by clicking the "Code" button in the repository UI, selecting the "Codespaces" tab - and then creating a new codespace. _Previously created codespaces will be listed if active or available for resume_.
-    
+1. To get started, launch GitHub Codespaces by clicking the "Code" button in the repository UI, selecting the "Codespaces" tab - and then creating a new codespace. _Previously created codespaces will be listed if active or available for resume_.
     ![Launch GitHub Codespaces](./img/01-launch-codespaces.png)   
 
 2. The first time you launch the codespace, you will see a new tab open with something like this indicating that the Codespace (dev container) is being built. Clicking the `Show Logs` button in the output console will produce the detailed output shown below.
-
     ![Codespace build](./img/02-setup-codespaces.png)
 
 3. Once the build completes, you should see the tab refresh to show a Visual Studio Code editor in the browser, as shown below. The blue bar at the bottom left of the screen should show you the name of the running Github Codespaces instance.
-    
     ![Codespace build](./img/03-running-codespaces.png)
 
-    If you refresh the repository page and view that 'Codespaces' tab again, you should see the same name show up as an active codespace for that repository.
+4. If you refresh the repository page and view that 'Codespaces' tab again, you should see the same name show up as an active codespace for that repository.
     ![Codespace build](./img/03-view-codespaces.png)
 
-    🟩 Congratulations! You're Codespaces is ready!
+!!!success "Congratulations 🎉 - Your Codespaces is Ready!"
 
 
-### 2: Pre-built Container, on Device
+### 2 | Pre-built Container (Device)
 
-> [!NOTE]  
->  This option is recommended if you prefer to work locally on your device. Continue getting the benefits of a prebuilt development environment using Docker Desktop as your container host.
+Complete this section if you want to use the prebuilt option with Docker Desktop on your local device. This gives you the benefits of a pre-built environment but without using up your GitHub Codespaces quota.
 
-1. **Install Docker Desktop**. Follow the instructions [here](https://code.visualstudio.com/docs/devcontainers/containers#_installation) to install Docker Desktop on your device.
-2. **Clone this repository** to your local device as usual, and open the repository in Visual Studio Code. Then follow the instructions [here](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) to open the repository in a dev container hosted in Docker Desktop. It will take a few minutes to build the container, but the end result will look like this. Note that the blue bar at the bottom left of the screen now indicates you are running in a `Dev Container` rather than a named GitHub Codespace.
+1. **Install Docker Desktop**. Follow [**these instructions**](https://code.visualstudio.com/docs/devcontainers/containers#_installation) to install Docker Desktop on your device.
+2. **Clone the forked repository** to your local device, then open the repository in Visual Studio Code. Follow [**these instructions**](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) open the folder in a container in Docker Desktop. The container takes a few minutes to build. You should then see something like this. Note the green icon (bottom left) shows a `Dev Container` label, not a GitHub Codespace name.
 
     ![Dpcker build](./img/03-view-docker.png)
 
-    🟩 Congratulations! You're local Dev Container is ready!
+!!!success "Congratulations 🎉 - You're local Dev Container is ready!"
 
 
-### 3: Manual Setup, on Device
+### 3 | Manual Setup (Device)
 
-> [!NOTE]  
-> This option is provided only for completeness. It is best for advanced users who are willing to tradeoff complexity (in maintenance) for control (in local environment setup). The user is accountable for making related updates when the Azure AI Studio, SDK or CLI dependencies change.
+This option is provided for completeness, but we do not recommend it unless you are an advanced user willing to tradeoff complexity (maintenance) for control (customized env). You will now be accountable for making related updates to keep in sync with changes to the Azure AI Studio, CLI, SDK or codebase. If you go this route, _we recommend using a managed virtual environment_ (`venv` or `conda`) to prevent conflicts with other Python development environments you have on your local device. 
 
-To minimize disruption to other projects on your local device, we recommend using a _managed_ virtual environment (like _venv_ or _conda_) to install the required Python version and dependencies for this project. 
+1. **Install and activate a virtual environment**. Follow guidance on ["How to get started with the Azure AI SDK"](https://learn.microsoft.com/azure/ai-studio/how-to/sdk-install?tabs=linux) to install your preferred virtual environment (venv or conda) and activate it. You will need `Python 3.10 or higher` to use the Azure AI SDK.
 
-1. **Install and activate a virtual environment**. Follow the guidance in the [How to get started with the Azure AI SDK](https://learn.microsoft.com/azure/ai-studio/how-to/sdk-install?tabs=linux) documentation to install your preferred virtual environment (venv or conda) - and activate it. You need `Python 3.10 or higher` to use the Azure AI SDK.
+2. **Install the Azure AI SDK**. Use this command to install dependencies in `requirements.txt`. 
 
-2. **Install the Azure AI SDK**. Use the `requirements.txt` file in this repo and install dependencies as follows:
     ```bash
     pip install -r requirements.txt
     ```
-3. **Install the Azure AI CLI**. Use the following command if your local environment on Ubuntu. To install the CLI on Windows and MacOS, follow the instructions [here](https://github.com/Azure/azureai-insiders/blob/main/previews/aistudio/how-to/use_azureai_sdk.md#install-the-cli) instead.
+3. **Install the Azure AI CLI**. This step depends on your device operating system. Use the command below if you are on a Linux (e.g, Ubuntu) environment. If you are on a Windows or macOS machine, [**follow these instrucutions**](https://github.com/Azure/azureai-insiders/blob/main/previews/aistudio/how-to/use_azureai_sdk.md#install-the-cli) instead.
     ```
     curl -sL https://aka.ms/InstallAzureAICLIDeb | sudo bash
     ```
 
-🟩 Congratulations! You're local environment is ready!
+!!!success "Congratulations 🎉 - You're local environment is ready!"
 
 ---
 
-## Validate Your Setup
+## 3.3 Validate Your Setup
 
 We assume you've completed one of the three options above to setup your development environment. Now, let's validate the setup by checking if the Azure AI CLI is installed. 
 
 ```bash
 ai help
 ```
-If setup correctly, you should see the help screen for the Azure AI CLI. as shown below. Hit `Esc` to exit the help screen and get back to your commandline prompt.
+If setup correctly, you should see the help screen for the Azure AI CLI. as shown below. Hit <kbd> Esc </kbd> to exit the help screen and get back to your commandline prompt.
 
 ![Validate Setup](./img/04-validate-setup.png)
 
-🟩 Congratulations! You've validated your dev environment!
-
-## Next Steps
-
-We've setup and validated our development environment. Next, we'll create our Azure AI project and provision resources to build our copilot solution.
+!!!success "Congratulations 🎉 - You've validated your dev environment!"
 
 !!!abstract "Next Up: [**Provision Azure Resources**](./04-azure.md)"

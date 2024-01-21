@@ -1,10 +1,9 @@
 # 04 | Provision Azure
 
-## Step 2: Create and connect to Azure Resources
+!!!warning "Screenshots may not be exactly the same as your experience"
+    Screenshots were captured with a GitHub Codespaces environment, and may have been refreshed in different sections to reflect changes made to the codebase or updates to the tools. While the details may have small variations, **the process and expected outcomes should remain consistent**.
 
-> [!NOTE]  
-> Unless specified explicitly, all screenshots shown were taken in a GitHub Codespaces environment. They are meant for guidance only and may not be representative of the latest versions of the Azure AI SDK or CLI.
-
+In this step we'll setup the top-level **Azure AI Resource** and provision it with the required **Azure AI Project**, **Azure OpenAI Service** and **Azure AI Search** service capbilities, with a single command!!
 
 1. Run the following command.
 
@@ -12,11 +11,11 @@
     ai init
     ```
 
-    You should see an interactive wizard that walks you through the process of creating an Azure AI project and provisioning the required Azure AI resources.
+    You should see an interactive wizard that walks you through the process of creating an Azure AI project and provisioning the required Azure AI resources. **This can take a few minutes to complete**.
     ![Ai init](./img/05-ai-init.png)
 
 
-2. If you are not already logged into your Azure account, you will be prompted to do so at this time. Choose the interactive option.
+1. If you are not already logged into your Azure account, you will be prompted to do so at this time. Choose the interactive option.
 
     ![Az Login](./img/06-az-login.png)
 
@@ -24,11 +23,11 @@
     
     ![Az Login](./img/07-az-signedin.png)
 
-3. Next, you will be prompted to create the Azure AI Resources for the project you are setting up, including the region and OpenAI model deployments for chat (`gpt-35-turbo-16k-0613`) and embeddings (`text-embedding-ada-002-2`).
+1. Next, you will be prompted to create the Azure AI Resources for the project you are setting up. The process will include setting up a resource group and Azure AI project resource, then adding a new Azure Oen AI Deployment (Chat model) including the region and OpenAI model deployments for chat (`gpt-35-turbo-16k-0613`) and embeddings (`text-embedding-ada-002-2`).
 
     ![Ai init](./img/08-ai-resource.png)
 
-4. Next, you will be prompted to create the Azure AI Search resource - I opted to have this be created in the same region as the other resources, and associated with the same resource group for convenience. You should now see a `config.json` file created with the following properties, with values set by your project.
+1. Next, you will be prompted to create the Azure AI Search resource - I opted to have this be created in the same region as the other resources, and associated with the same resource group for convenience. You should now see a `config.json` file created with the following properties, with values set by your project.
 
     ```json
     {

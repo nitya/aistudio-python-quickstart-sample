@@ -1,5 +1,7 @@
 # 06 | Run Your Copilot
 
+!!!danger "TODO: Validate these work with the latest CLI"
+
 ## Step 4: Run the co-pilot with a sample question
 
 > [!NOTE]  
